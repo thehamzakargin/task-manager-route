@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
 import { NoTaskComponent } from './tasks/no-task/no-task.component';
 import { UserTasksComponent } from './users/user-tasks/user-tasks.component';
-import { TasksComponent } from './tasks/tasks.component';
-import { NewTaskComponent } from './tasks/new-task/new-task.component';
+import { routes as userRoutes } from './users/users.routes';
 
 export const routes: Routes = [
   {
@@ -12,15 +11,6 @@ export const routes: Routes = [
   {
     path: 'user/:userId',
     component: UserTasksComponent,
-    children: [
-      {
-        path: 'tasks',
-        component: TasksComponent,
-      },
-      {
-        path: 'task/new',
-        component: NewTaskComponent,
-      },
-    ],
+    children: userRoutes,
   },
 ];
